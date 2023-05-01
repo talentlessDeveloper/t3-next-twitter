@@ -56,7 +56,7 @@ const PostView = ({ post, author }: PostWithUsers) => {
             . {dayjs(post.createdAt).fromNow()}
           </span>
         </div>
-        <span>{post.content}</span>
+        <span className="text-2xl">{post.content}</span>
       </div>
     </div>
   );
@@ -79,8 +79,7 @@ const Feed = () => {
 };
 
 const Home: NextPage = () => {
-  const { user, isLoaded: userLoaded, isSignedIn } = useUser();
-  // console.log(user);
+  const { isLoaded: userLoaded, isSignedIn } = useUser();
 
   // Start fetching asap, since its react-query data will be cached
   api.posts.getAll.useQuery();
